@@ -12,7 +12,7 @@
         <h4 ng-bind="question.content"></h4>
         <em>
           <span>Posted by </span><span ng-bind="question.author"></span>
-          <span> on </span><span ng-bind="question.posted"></span>
+          <span> on </span><span ng-bind="question.posted | date:'medium'"></span>
         </em>
         <div class="reviewDiv">
           <span class="review">
