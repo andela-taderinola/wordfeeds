@@ -1,0 +1,11 @@
+<form ng-submit="register()"class="userForm">
+  <h1>Sign up</h1>
+  <input autofocus="autofocus" ng-model="username" class="form-control" type="text" placeholder="Username" required>
+  <input ng-model="password" class="form-control" type="password" placeholder="Password" required>
+  <input ng-model="password2" class="form-control" type="password" placeholder="Confirm Password" required>
+  <button ng-disabled ="password !== password2" class="btn btn-default">Create Account</button>
+  <p>Already have an account?</p>
+  <a href="#/login">Sign in</a>
+  <p id="signupInfo"></p>
+  <p ng-hide="password === password2 || password === ''">Passwords do not match</p>
+</form>

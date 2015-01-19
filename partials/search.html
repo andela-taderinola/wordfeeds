@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/vendor/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/custom/main.css">
+    <link rel="icon" href="img/BibleIcon.png">
+    <script type="text/javascript" src="js/vendor/bootstrap.js"></script>
+    <script type="text/javascript" src="js/vendor/angular.js"></script>
+    <script type="text/javascript" src="js/vendor/angular-route.js"></script>
+    <script type="text/javascript" src="js/vendor/angular-mocks.js"></script>
+    <script type="text/javascript" src="js/custom/controller.js"></script>
+    <script type="text/javascript" src="js/vendor/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="js/custom/app.js"></script>
+    <title>Word Feed | Read Bible</title>
+  </head>
+  <body>
+    <div class="container">
+      <div id="searchHeader">
+        <p><strong>Search Sidebar</strong></p>
+        <div class="toReveal" id="searchSummary">
+          <p>"{{searchItem}}"</p>
+          <p id="count">{{searchResponse.hitCount}} hits; {{searchResponse.resultCount}} results<p>
+        </div>
+        <input ng-model="refine" type="text" placeholder="Filter search results" class="form-control toReveal">
+      </div>
+      <div class="container" id="searchListContainer">
+        <dl ng-repeat="verse in searchResult | filter:refine">
+          <dt>{{verse.title}}</dt>
+          <dd>{{verse.preview}}</dd>
+        </dl>
+      </div>
+    </div>
+  </body>
+</html>

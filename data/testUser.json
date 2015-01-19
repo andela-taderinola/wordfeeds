@@ -1,0 +1,38 @@
+{
+  "login": {
+    "email": "timiderinola@gmail.com",
+    "password": "timilehin"
+  },
+  "fname": "Timilehin",
+  "lname": "Aderinola",
+  "joined": "Date",
+  "questions": [{
+    "question": "I once had an employee ask me what my most important teaching was. I didn’t know how to answer. I think they’re all important. Everything the Lord has shown me works together with other truths to make a whole. I said I couldn’t single out just one. What is eternal life? I have been asking this question over and over, and I have not gotten any satisfactory answer. I would appreciate if someone could provide a very good and practical answer. Thanks.",
+    "author": "Zean Clarke",
+    "posted": "Date",
+    "answers": [{
+      "answer": "The life of God. When you have eternal life, you have the kind of life that God has. You dont have to wait. You have it now. I once had an employee ask me what my most important teaching was. I didn’t know how to answer. I think they’re all important. Everything the Lord has shown me works together with other truths to make a whole. I said I couldn’t single out just one.",
+      "author": "Dammy Balogun",
+      "posted": "Date",
+      "likes": 8,
+      "okays": 0,
+      "dislikes": 0
+      },
+      {
+      "answer": "What you get when you get saved. You have to realize it and grow in it. It takes nurturing and developing. Someone might say, “Eternal life is living forever.” But that’s not it. No one ceases to exist when they die. Everyone lives forever in either heaven or hell. “Well then, eternal life must be living forever in heaven instead of hell.” That’s not it either.",
+      "author": "Pamilerin Olotu",
+      "posted": "Date",
+      "likes": 7,
+      "okays": 3,
+      "dislikes": 0
+      },
+      {
+      "answer": "Eternal life is knowing God. You may be disappointed with that definition. You think you know God and you still aren’t satisfied. You want there to be something more. The key lies in understanding what the Bible means by this word “know.”",
+      "author": "David Abe",
+      "posted": "Date",
+      "likes": 5,
+      "okays": 1,
+      "dislikes": 0
+      }]
+    }]
+}

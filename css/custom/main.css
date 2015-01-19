@@ -1,0 +1,414 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+body {
+  text-align: center;
+/*  background: -webkit-linear-gradient(#000, #264348, #757D75, #BDC3C7);
+*/  background-attachment: fixed;
+  font-size: 1.3em;
+}
+
+div h3 {
+  display: inline-block;
+}
+
+.navbar {
+  background: #003171;
+  border: none;
+  padding: 0.4em;
+}
+
+#navbar a:hover {
+  color: #19B5FE;
+}
+
+#navbar a {
+  color: #fff;
+}
+
+#searchForm {
+  display: none;
+}
+
+#btn {
+  display: inline-block;
+  background: url('../../img/BibleIcon.png') no-repeat;
+  background-size: cover;
+  width: 3em;
+  height: 3em;
+  margin-left: -0.35em;
+  padding: 0.5em 1em;
+}
+
+#searchInput {
+  display: inline-block;
+  width: 19em;
+  height: 3em;
+}
+
+#options {
+  display: block;
+  margin: 0.5em auto;
+  font-size: 0.8em;
+}
+
+#info {
+  position: relative;
+  margin: auto;
+  background: #FFE4B5;
+  border-radius: 1em;
+  font-weight: lighter;
+  color: #000;
+  padding: 0 0.5em;
+  z-index: 2;
+}
+
+#bible, #search {
+  position: relative;
+  height: 80%;
+  top: 5%;
+  padding: 1em 1em 0.9em 0.7em;
+  line-height: 1.4;
+  background: #F5F5F5;
+  opacity: 0.8;
+  border: 2px solid #1E90FB;
+  border-radius: 1%;
+}
+
+#bible, #search {
+  text-align: center;
+  color: #000;
+  font-size: 1.5em;
+  font-weight: bold;
+  display: none;
+}
+
+#search {
+  text-align: left;
+  border: none;
+}
+
+/*#searchListContainer {
+>>>>>>> d65f91585a8719101b027ca8a5bde97d3d18b9b5
+  height: 65%;
+  top: 22.5%;
+  overflow: hidden;
+  text-align: left;
+  background-size: cover;
+  color: #000;
+  font-size: 1em;
+  display: none;
+<<<<<<< HEAD
+}
+
+dl {
+=======
+}*/
+
+dl {
+  position: relative;
+  margin: 1em 0 0.5em;
+}
+
+dt {
+  color: blue;
+}
+
+dl, dl * {
+  position: relative;
+  width: 98%;
+}
+
+#searchListContainer:hover {
+  overflow: scroll;
+  overflow-x: hidden; 
+}
+
+#content {
+  position: relative;
+  text-align: left;
+  padding: 0 0.8em;
+  top: 1%;
+  max-height: 96%;
+  width: 95%;
+  margin: auto;
+  overflow: hidden;
+}
+
+#content:hover {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+ 
+li {
+  color: blue;
+}
+
+li p {
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+#bibliaInfo a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  position: relative;
+  width: 100%;
+  color: #003171;
+  margin: 5% auto 0;
+  padding: 0.5em;
+  bottom: 0;
+  font-size: 1em;
+  font-weight: bolder;
+  border-top: 2px solid #C0C0C0;
+}
+
+footer * {
+  margin: auto;
+}
+
+#searchHeader {
+  position: relative;
+  top: 6%;
+  text-align: center;
+  background: #1E90FB;
+  color: #fff;
+}
+
+#searchHeader * {
+  position: relative;
+  width: 100%;
+}
+
+#searchHeader p {
+  margin: -0.1em 0 0.01em;
+  border: none;
+  background: #1E90FB;
+  color: #fff;
+}
+
+.toReveal {
+  width: 100%;
+  position: relative;
+  display: none;
+}
+
+.mainContainer {
+  opacity: 0.9;
+  padding: 3em;
+  margin: auto; 
+  width: 70%;
+  min-height: 80%;
+  text-align: justify;
+  background: none;
+  background: url('../../img/subtle_white_feathers.png');
+  box-shadow: 0.5em 0 1em 5px #264348;
+}
+
+#filterBar {
+  text-align: right;
+}
+
+#filterBar * {
+  display: inline-block;
+  height: 2.7em;
+  margin: 0;
+}
+
+#feedFilter {
+  width: 12.5em;
+}
+
+#feedContainer {
+  margin: 0.1em;
+  border-radius: 5px;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+#questionsContainer {
+}
+
+.question, .answer {
+  padding: 1em 3em 0.5em
+}
+
+.question {
+  background: #fff;
+}
+
+.modify-img {
+  width: 2em;
+  height: 2em;
+  margin: 0 1em;
+}
+
+.jumbotron h1 {
+  display: inline-block;
+}
+
+.logo {
+  height: 3em;
+  width: 3em;
+}
+
+.answer {
+  color: #003171;
+  font-weight: bolder;
+  background: #fff;
+}
+
+#contributionContainer {
+  position: relative;
+  text-align: right;
+}
+
+.contributionForm {
+  max-width: 90%;
+  margin: auto;
+  text-align: right;
+  padding-top: 2em;
+}
+
+.contribution {
+  position: relative;
+  overflow: scroll;
+  max-width: 100%;
+  overflow-x: hidden; 
+}
+
+.contributionButton {
+  background: #003171;
+  border: none;
+  color: #fff;
+}
+
+.answerLink {
+  background: #003171;
+  border-radius: 2px; 
+}
+
+.reviewDiv {
+  text-align: right;
+  max-width: 95%;
+  border-radius: 10px;
+}
+
+.review {
+  background: #003171;
+  border-radius: 10px; 
+}
+
+.okay {
+  background: #4B77BE;
+}
+
+.wrong {
+  background: #CF3A24;
+}
+
+.review a {
+  color: #fff;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: lighter;
+  padding: 0.3em;
+  opacity: 0.7;
+}
+
+.review a:hover {
+  text-decoration: none;
+  opacity: 1;
+}
+
+ul {
+  list-style: none;
+}
+
+#bibleTab {
+  background: url('../../img/bible.png') no-repeat;
+  background-size: contain;
+}
+
+#sidebar img {
+  transition: 0.3s ease-in-out;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  margin-left: .25em 0;
+  height: 4em;
+  width: 4em;
+}
+
+#sidebar img:hover {
+  margin-left: 1em;
+}
+
+.selectedSidebar {
+  margin-left: 2em;
+}
+
+#sidebar {
+  background: none;
+  position: fixed;
+  width: 5em;
+  height: 15em;
+  left: -2.5em;
+  bottom: 5%;
+}
+
+.userForm {
+  position: relative;
+  margin: 3% auto;
+  max-width: 30em;
+  max-height: 30em;
+  border: 2px solid #1F4788;
+  background: #48929B;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.userForm input[type="text"], .userForm input[type="password"] {
+  width: 90%;
+  margin: 1.5em auto;
+  height: 3em;
+  font-weight: bolder;
+  font-size: 1.2em;
+}
+
+form h1, form a, .userForm .btn {
+  color: #1F4788;
+  font-weight: bold;
+}
+
+.userForm p {
+  margin: 1em 0 0;
+  color: #1F4788;
+}
+
+.userForm button {
+  display: block;
+  margin: auto;
+}
+
+.userForm label {
+  margin: 1em;
+}
+
+.userForm div {
+  width: 85%;
+  margin: auto;
+}
+
+#questionInput {
+  min-height: 15em;
+  margin-bottom: 2em;
+}

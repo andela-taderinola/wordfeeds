@@ -1,0 +1,58 @@
+<div ng-init="showAnswers()">
+  <div id="welcome">
+    <h3>Welcome,&nbsp </h3><h3 ng-show="currentUser" ng-bind="currentUser"></h3>
+    <span ng-hide="currentUser">Guest</span><a class="pull-right" ng-show="currentUser" ng-click="logout()" href="#/logout">Sign out</a>
+  </div>
+  <h3>
+    Contributions
+  </h3>
+  <div id="feedContainer">
+    <div id="questionsContainer">
+      <div class="question">
+        <h4 ng-bind="question.content"></h4>
+        <em>
+          <span>Posted by </span><span ng-bind="question.author"></span>
+          <span> on </span><span ng-bind="question.posted"></span>
+        </em>
+        <div class="reviewDiv">
+          <span class="review">
+            <a ng-click="storeId(idArray[$index])" class="showAnswers" href="#/answers">
+              <span>contributions</span>
+            </a>
+          </span>&nbsp<span ng-show="question.answers > 0" ng-bind="question.answers"></span>
+        </div>
+      </div>
+      <div id="answer{{$index}}" ng-repeat="answer in answers | orderBy:'answer.posted'" class="container-fluid answer">
+        <hr>
+        <h5 ng-bind="answer.content"></h5>
+          <!-- <form ng-show="edit[$index]" class="contributionForm edit" ng-submit="updateAnswer($index)">
+            <textarea id="update" required ng-model="answer.content" autofocus="autofocus" class="form-control contribution" name="textarea" placeholder="Edit your contribution." ng-model="updateContent"></textarea>
+            <button class="btn btn-default contributionButton" ng-hide="answer.content.length < 5">Update Contribution</button>
+          </form> -->
+        <em>
+          <span>by </span><span ng-bind="answer.author"></span>
+          <span> on </span><span ng-bind="answer.posted"></span>
+          <!-- <div class="reviewDiv">
+            <span class="review"> <a href="">Yeah!</a></span><span ng-bind="answer.likes"></span>
+            <span class="review okay"> <a href="">Okay</a></span><span ng-bind="answer.okays"></span>
+            <span class="review wrong"> <a href="">No!</a></span><span ng-bind="answer.dislikes"></span>
+          </div> -->
+        </em>
+        <span ng-show="currentUser === answer.author">
+          <a title="Delete" href="" ng-click="deleteAnswer(answer._id)">
+            <img class="modify-img" src="../img/Delete_Icon.png">
+          </a>
+          <!-- <a title="Edit" href="" ng-click="showUpdateForm($index)">
+            <img class="modify-img" src="../img/pensil.png">
+          </a> -->
+        </span>
+      </div>
+      <div ng-show="currentUser" id="contributionContainer" class="container-fluid">
+        <form class="contributionForm" ng-submit="postAnswer()">
+          <textarea required autofocus="autofocus" class="form-control contribution" name="textarea" placeholder="Add your contribution." ng-model="answerContent"></textarea>
+          <button class="btn btn-default contributionButton" ng-hide="answerContent.length < 5 || !answerContent">Submit Contribution</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

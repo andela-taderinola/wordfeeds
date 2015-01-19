@@ -1,0 +1,25 @@
+<center>
+  <label id="info" ng-bind="info"></label>
+</center>
+<center>
+  <div id="bible" class="container-fluid">
+  </div>
+</center>
+<center>
+  <div class="toReveal" id="searchHeader">
+    <div id="searchSummary">
+      <p><strong>Search Results</strong></p>
+      <p>"{{searchItem}}"</p>
+      <p id="count">{{searchResponse.hitCount}} hits; {{searchResponse.resultCount}} results<p>
+    </div>
+    <input ng-model="refine" type="text" placeholder="Filter search results" class="form-control toReveal">
+  </div>
+  <div id="search" class="container">
+    <div class="container" id="searchListContainer">
+      <dl ng-repeat="verse in searchResult | filter:refine">
+        <dt>{{verse.title}}</dt>
+        <dd>{{verse.preview}}</dd>
+      </dl>
+    </div>
+  </div>
+</center>

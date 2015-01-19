@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="bibleApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/vendor/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/custom/main.css">
+    <link rel="icon" href="img/BibleIcon.png">
+    <title>Word Feed</title>
+  </head>
+
+  <body ng-controller="bibleController">
+    <!-- <div id="navbar" class="navbar">
+      <form>
+        <input required type="text" id="searchInput" class="form-control" placeholder="Type to search or read passage" autofocus="autofocus">
+        <button class="form-control" id="btn"></button>
+      </form>
+    </div> -->
+    <nav id="sidebar">
+      <ul>
+        <li><a href=""><img src="img/bible.png"></a></li>
+        <li><a href=""><img src="img/searchIcon.png"></a></li>
+        <li><a href=""><img class="selectedSideBar" src="img/questionMark.png"></a></li>
+      </ul>
+    </nav>
+    <div class="container" id="mainContainer">
+<!--       this is the main viewport -->
+    </div>
+    <!-- <footer class="footer">
+      <div class="container">
+        &copy; 2014 Timilehin Aderinola</br>
+          <a class="bibliaInfo" href="http://biblia.com/">
+            <img src="img/PoweredByBiblia.png" alt="Powered by Biblia">
+          </a>
+          <p class="bibliaInfo" id="bibliaInfo">
+            This site uses the
+            <a href="http://biblia.com/">
+              Biblia
+            </a>
+             web services from
+             <a href="http://www.logos.com/">
+              Logos Bible Software
+            </a>
+          </p>
+      </div>
+    </footer> -->
+    <script type="text/javascript" src="js/vendor/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="js/vendor/angular.js"></script>
+    <script type="text/javascript" src="js/vendor/angular-route.js"></script>
+    <script type="text/javascript" src="js/custom/app.js"></script>
+  </body>
+</html>

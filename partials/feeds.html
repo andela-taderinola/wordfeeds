@@ -1,0 +1,39 @@
+<div ng-init="showAllQuestions()">
+  <div id="welcome">
+    <h3>Welcome,&nbsp </h3><h3 ng-show="currentUser" ng-bind="currentUser"></h3>
+    <span ng-hide="currentUser">Guest</span><a class="pull-right" ng-show="currentUser" ng-click="logout()" href="#/logout">Sign out</a>
+  </div>
+  <h3>
+    Drop your questions <a href="#/post">here</a><a ng-hide="currentUser" href="#/login"> login</a>
+  </h3>
+  <div id="filterBar">
+    <input class="form-control" id="feedFilter" placeholder="Search with keywords" ng-model="refine">
+  </div>
+  <div id="feedContainer">
+    <div id="questionsContainer" ng-repeat="question in questions | filter:refine">
+      <div class="question">
+        <h4 ng-bind="question.content"></h4>
+        <em>
+          <span>Posted by </span><span ng-bind="question.author"></span>
+          <span> on </span><span ng-bind="question.posted"></span>
+        </em>
+        <span ng-show="currentUser === question.author">
+          <a ng-click="deleteQuestion(question._id)" title="Delete" href="">
+            <img class="modify-img" src="../img/Delete_Icon.png">
+          </a>
+          <!-- <a title="Edit" href="">
+            <img class="modify-img" src="../img/pensil.png">
+          </a> -->
+        </span>
+        <div class="reviewDiv">
+          <span class="btn btn-primary review">
+            <a ng-click="storeId(question._id)" class="showAnswers" href="#/answers">
+              <span>contributions <span ng-show="question.answers > 0" ng-bind="question.answers" class="badge"></span></span>
+            </a>
+          </span>
+        </div>
+        <HR>
+      </div>
+    </div>
+  </div>
+</div>
