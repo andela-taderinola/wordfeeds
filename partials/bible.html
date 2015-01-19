@@ -14,8 +14,8 @@
     </div>
     <input ng-model="refine" type="text" placeholder="Filter search results" class="form-control toReveal">
   </div>
-  <div id="search" class="container">
-    <div class="container" id="searchListContainer">
+  <div id="search">
+    <div id="searchListContainer">
       <dl ng-repeat="verse in searchResult | filter:refine">
         <dt>{{verse.title}}</dt>
         <dd>{{verse.preview}}</dd>
