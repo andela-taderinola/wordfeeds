@@ -8,38 +8,32 @@ angular.module('Questions')
   'feedsService',
   function ($scope, $http, $location, $localStorage, feedsService) {
 
-  $("a.answersLink").click(function() {
-    console.log('clicked');
-    var text = $(this).next().text();
-    console.log('innerText id', text);
-  });
-
   $scope.presentDate = new Date();
   console.log("working...");
+  $scope.info = "";
   $scope.currentUser = $localStorage.username;
+  $scope.author = $scope.currentUser;
   $scope.currentQuestionId = $localStorage.currentQuestionId;
-  
-  if(!$scope.currentUser) {
-    $scope.author = "Anonymous";
-    console.log('author', $scope.author);
-  } else {
-    $scope.author = $scope.currentUser;
-  }
 
   console.log("currentUser", $scope.currentUser);
   var temp = [];
   $scope.edit = [];
     
     $scope.postQuestion = function() {
+      if (!$scope.currentUser) {
+        $scope.author = "Anonymous";
+      }
       var formData = {
         content: $scope.questionContent,
         author: $scope.author
       };
 
       feedsService.postQuestion($scope.currentUser, formData, function (response) {
+        $scope.info = "Posting question ...";
         if(response.type === false) {
-          alert(response.data);
+          $scope.info = response.data;
         } else {
+          $scope.info = "Question posted";
           $scope.sent = true;
           $scope.questionContent = "";
         }

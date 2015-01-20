@@ -1,7 +1,7 @@
 <div ng-init="showAnswers()">
   <div id="welcome">
     <h3>Welcome,&nbsp </h3><h3 ng-show="currentUser" ng-bind="currentUser"></h3>
-    <span ng-hide="currentUser">Guest</span><a class="pull-right" ng-show="currentUser" ng-click="logout()" href="#/logout">Sign out</a>
+    <span ng-hide="currentUser"><h3>Guest</h3></span><a class="pull-right" ng-show="currentUser" ng-click="logout()" href="#/logout">Sign out</a>
   </div>
   <h3>
     Contributions
@@ -11,7 +11,7 @@
       <div class="question">
         <h4 ng-bind="question.content"></h4>
         <em>
-          <span>Posted by </span><span ng-bind="question.author"></span>
+          <span ng-hide="question.author == 'undefined'" ng-bind="question.author"></span><span>&nbsp asked </span>
           <span> on </span><span ng-bind="question.posted | date:'medium'"></span>
         </em>
         <div class="reviewDiv">
@@ -30,14 +30,14 @@
             <button class="btn btn-default contributionButton" ng-hide="answer.content.length < 5">Update Contribution</button>
           </form> -->
         <em>
-          <span>by </span><span ng-bind="answer.author"></span>
-          <span> on </span><span ng-bind="answer.posted | date:'medium'"></span>
+          <span ng-bind="answer.author"></span>
+        </em>
+          <span> || </span><span ng-bind="answer.posted | date:'medium'"></span>
           <!-- <div class="reviewDiv">
             <span class="review"> <a href="">Yeah!</a></span><span ng-bind="answer.likes"></span>
             <span class="review okay"> <a href="">Okay</a></span><span ng-bind="answer.okays"></span>
             <span class="review wrong"> <a href="">No!</a></span><span ng-bind="answer.dislikes"></span>
           </div> -->
-        </em>
         <span ng-show="currentUser === answer.author">
           <a title="Delete" href="" ng-click="deleteAnswer(answer._id)">
             <img class="modify-img" src="./img/Delete_Icon.png">

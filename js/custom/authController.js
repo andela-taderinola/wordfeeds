@@ -10,6 +10,7 @@ angular.module('Authentication')
     function ($scope, $rootScope, $location, $localStorage, AuthenticationService) {
       $scope.username = "";
       $scope.password = "";
+      $scope.info = "";
       $scope.logout;
 
       $scope.login = function() {
@@ -19,9 +20,11 @@ angular.module('Authentication')
         }
  
         AuthenticationService.login(formData, function (response) {
+          $scope.info = "Logging in ...";
           if (response.type == false) {
-              alert(response.data);    
+              $scope.info = response.data;    
           } else {
+              $scope.info = "Authenticated";
               $localStorage.token = response.data.token;
               $localStorage.username = $scope.username;
               window.location = "#/home";    
@@ -38,12 +41,13 @@ angular.module('Authentication')
         }
 
         AuthenticationService.save(formData, function (response) {
+            $scope.info = "Processing request ...";
             if (response.type == false) {
-                alert(response.data);
+                $scope.info = response.data;
             } else {
+                $scope.info = "Account created successfully.";
                 $localStorage.token = response.data.token;
                 $localStorage.username = $scope.username;
-                $("#signupInfo").text("Account created successfully.");
                 window.location = "#/home";   
             }
           }, 

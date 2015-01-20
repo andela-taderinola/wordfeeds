@@ -1,6 +1,9 @@
+<center>
+  <label id="postInfo" ng-bind="info"></label>
+</center>
 <form ng-submit="login()" class="userForm">
   <h1>Login</h1>
-  <input autofocus="autofocus" ng-model="username" class="form-control" type="text" placeholder="Username" required>
+  <input type="email" autofocus="autofocus" ng-model="username" class="form-control" type="text" placeholder="Email" required>
   <input ng-model="password" class="form-control" type="password" placeholder="Password" required>
   <button class="btn btn-default">Login</button>
   <p>Don't have an account yet?</p>

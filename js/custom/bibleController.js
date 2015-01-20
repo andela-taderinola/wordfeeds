@@ -20,6 +20,7 @@ angular.module('Bible')
   }
   
   $scope.username = $localStorage.username;
+  console.log('welcome',$localStorage.username);
 
   $scope.showSearch = function() {
     $("#searchForm").fadeIn(1000);
