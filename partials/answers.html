@@ -31,7 +31,7 @@
           </form> -->
         <em>
           <span>by </span><span ng-bind="answer.author"></span>
-          <span> on </span><span ng-bind="answer.posted"></span>
+          <span> on </span><span ng-bind="answer.posted | date:'medium'"></span>
           <!-- <div class="reviewDiv">
             <span class="review"> <a href="">Yeah!</a></span><span ng-bind="answer.likes"></span>
             <span class="review okay"> <a href="">Okay</a></span><span ng-bind="answer.okays"></span>

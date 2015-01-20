@@ -4,8 +4,8 @@
     <span ng-hide="currentUser">Guest</span><a class="pull-right" ng-show="currentUser" ng-click="logout()" href="#/logout">Sign out</a>
   </div>
   <h3>
-    Drop your questions <a href="#/post">here</a><a ng-hide="currentUser" href="#/login"> login</a>
-  </h3>
+    Drop your questions <a href="#/post">here</a>
+  </h3><span><a class="pull-right" ng-hide="currentUser" href="#/login"> login</a></span>
   <div id="filterBar">
     <input class="form-control" id="feedFilter" placeholder="Search with keywords" ng-model="refine">
   </div>

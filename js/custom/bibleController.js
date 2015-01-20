@@ -10,10 +10,16 @@ angular.module('Bible')
 
   function ($scope, $http, $location, $localStorage) {
   $scope.key = "517d06fdbe90e270534625197ed15845";
+
+  //check if user had already opened a passage or search. If so, repopulate the page with the last acticity
+  //search or passage
+  if($scope.lastActivity === "search") {
+    $scope.showSearchResults($localStorage.searchResponse);
+  } else if($scope.lastActivity === "bible") {
+    $scope.showPassage($localStorage.biblePassage);
+  }
   
-  $scope.getUser = function() {
-    $scope.username = $localStorage.username;
-  };
+  $scope.username = $localStorage.username;
 
   $scope.showSearch = function() {
     $("#searchForm").fadeIn(1000);
@@ -35,13 +41,10 @@ angular.module('Bible')
           $scope.info = "Done";
           if(data.hitCount > 0) {
             $scope.info = "";
+            $scope.lastActivity = "search";
             $scope.searchResponse = data;
-            $scope.searchResult = $scope.searchResponse.results;
-            $scope.searchItem = $scope.inputText;
-            $("#search").show();
-            $("#bible").fadeOut(1000);
-            $("#searchListContainer").fadeIn(1500);
-            $(".toReveal").fadeIn(1000);
+            $localStorage.searchResponse = $scope.searchResponse;
+            $scope.showSearchResults(data);
           } else {
             $scope.info = "Checking in Bible...";
             $scope.openBible();
@@ -56,19 +59,33 @@ $scope.openBible = function (status){
   $http({url: 'http://api.biblia.com/v1/bible/content/DARBY.html.json', method: 'GET', params: {passage: $scope.inputText, style: "fullyFormattedWithFootnotes", key: $scope.key}}).
       success(function (data) {
         $scope.info = "Done";
-        $scope.response = data;
-        $scope.verse = $scope.response.text;
-        $scope.display = '<div id="content">' + $scope.verse + '</div>';
-        $("#bible").html($scope.display);
-        $("#bible").fadeIn(1000);
-        $("#search").fadeOut(800);
-        $scope.info = "";
+        $scope.lastActivity = "bible";
+        $localStorage.biblePassage = data;
+        $scope.showPassage(data);
     }).
       error(function (data, status) {
         $scope.failEvent(status);
         return;
     });
-  }
+}
+
+$scope.showPassage = function (passage) {
+  var verse = passage.text;
+  var display = '<div id="content">' + verse + '</div>';
+  $("#bible").html(display);
+  $("#bible").fadeIn(1000);
+  $("#search").fadeOut(800);
+  $scope.info = "";
+};
+
+$scope.showSearchResults = function (data) {
+  $scope.searchResult = data.results;
+  $scope.searchItem = $scope.inputText;
+  $("#search").show();
+  $("#bible").fadeOut(1000);
+  $("#searchListContainer").fadeIn(1500);
+  $(".toReveal").fadeIn(1000);
+};
 
 // $scope.rollUp = function() {
 //   $("#navbar").fadeOut(1000);
