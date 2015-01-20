@@ -6,8 +6,7 @@ html, body {
 
 body {
   text-align: center;
-/*  background: -webkit-linear-gradient(#000, #264348, #757D75, #BDC3C7);
-*/  background-attachment: fixed;
+  background-attachment: fixed;
   font-size: 1.3em;
 }
 
@@ -91,23 +90,6 @@ div h3 {
   border: none;
 }
 
-/*#searchListContainer {
->>>>>>> d65f91585a8719101b027ca8a5bde97d3d18b9b5
-  height: 65%;
-  top: 22.5%;
-  overflow: hidden;
-  text-align: left;
-  background-size: cover;
-  color: #000;
-  font-size: 1em;
-  display: none;
-<<<<<<< HEAD
-}
-
-dl {
-=======
-}*/
-
 dl {
   position: relative;
   margin: 1em 0 0.5em;
@@ -179,8 +161,7 @@ footer * {
   position: relative;
   top: 6%;
   text-align: center;
-  background: #1E90FB;
-  color: #fff;
+  color: #003171;
 }
 
 #searchHeader * {

@@ -7,6 +7,7 @@
   <input ng-model="password" class="form-control" type="password" placeholder="Password" required>
   <input ng-model="password2" class="form-control" type="password" placeholder="Confirm Password" required>
   <button ng-disabled ="password !== password2" class="btn btn-default">Create Account</button>
+  <a href="#/feeds">Cancel</a>
   <p>Already have an account?</p>
   <a href="#/login">Sign in</a>
   <p ng-hide="password === password2 || password === ''">Passwords do not match</p>

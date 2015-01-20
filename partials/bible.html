@@ -1,3 +1,4 @@
+<a class="pull-right" href="#/feeds">close</a>
 <center>
   <label id="info" ng-bind="info"></label>
 </center>
@@ -8,9 +9,9 @@
 <center>
   <div class="toReveal" id="searchHeader">
     <div id="searchSummary">
-      <p><strong>Search Results</strong></p>
-      <p>"{{searchItem}}"</p>
-      <p id="count">{{searchResponse.hitCount}} hits; {{searchResponse.resultCount}} results<p>
+      <span><strong>Search Results:</strong></span>
+      <span>"{{searchItem}}"</span>
+      <span id="count">{{searchResponse.hitCount}} hits; {{searchResponse.resultCount}} results<span>
     </div>
     <input ng-model="refine" type="text" placeholder="Filter search results" class="form-control toReveal">
   </div>
