@@ -9,7 +9,6 @@ angular.module('Questions')
   function ($scope, $http, $location, $localStorage, feedsService) {
 
   $scope.presentDate = new Date();
-  console.log("working...");
   $scope.info = "";
   $scope.currentUser = $localStorage.username;
   $scope.author = $scope.currentUser;
@@ -28,8 +27,10 @@ angular.module('Questions')
         author: $scope.author
       };
 
-      feedsService.postQuestion($scope.currentUser, formData, function (response) {
         $scope.info = "Posting question ...";
+
+      feedsService.postQuestion($scope.currentUser, formData, function (response) {
+        
         if(response.type === false) {
           $scope.info = response.data;
         } else {
@@ -41,12 +42,19 @@ angular.module('Questions')
     };
 
     $scope.showAllQuestions = function() {
+      $scope.info = "Loading questions ...";
       feedsService.getAllQuestions(function (data) {
+        if(data.type === false) {
+          $scope.info = data.data;
+        }
+        console.log("info", $scope.info);
         $scope.questions = data;
         for(i=0; i<$scope.questions.length; i++) {
           temp.push($scope.questions[i]._id);
           $scope.idArray = temp;
         }
+        $scope.info = "Done";
+        $scope.info = "";
       });
     };
 
@@ -56,9 +64,12 @@ angular.module('Questions')
     };
 
     $scope.showAnswers = function() {
+      $scope.info = "Fetching contributions ...";
       feedsService.getQuestionById($scope.currentQuestionId, function (data) {
         $scope.question = data;
+          $scope.info = data.data;
         feedsService.getAnswers($scope.question._id, function (data) {
+          $scope.info = data.data;
           $scope.answers = data;
           for(i=0; i<$scope.answers.length; i++) {
             temp.push($scope.answers[i]._id);
@@ -66,6 +77,7 @@ angular.module('Questions')
           }
         });
       });
+      $scope.info = "";
     };
 
     $scope.postAnswer = function() {
@@ -73,14 +85,15 @@ angular.module('Questions')
         content: $scope.answerContent,
         author: $scope.currentUser
       };
-
+      $scope.info = "Please wait ...";
       feedsService.postAnswer($scope.currentQuestionId, formData, function (response) {
         if(response.type === false) {
-          alert(response.data);
+          $scope.info = response.data;
         } else {
-          
+          $scope.info = "Contribution posted.";
         }
       });
+      $scope.info = "";
       $scope.showAnswers();
       $scope.answerContent = "";
     };
@@ -115,12 +128,15 @@ angular.module('Questions')
     $scope.deleteAnswer = function(answerId) {
       alert("Delete this post?");
       feedsService.deleteAnswer($scope.currentQuestionId,answerId, function (response) {
+        $scope.info = "Removing contribution ...";
         if(response.type === false) {
-          alert(response.data);
+          $scope.info = response.data;
         } else {
-            $scope.showAnswers();
+          $scope.info = "Contribution removed.";
+          $scope.showAnswers();
         }
       });
+      $scope.info = "";
       $scope.answer_idArray = [];
       $scope.showAnswers();
     };
@@ -128,12 +144,15 @@ angular.module('Questions')
     $scope.deleteQuestion = function(questionId) {
       alert("Delete this post?");
       feedsService.deleteQuestion($scope.currentUser,questionId, function (response) {
+        $scope.info = "Removing question ...";
         if(response.type === false) {
-          alert(response.data);
+          $scope.info = response.data;
         } else {
+          $scope.info = "Question removed.";
           $scope.showAllQuestions(); 
         }
       });
+      $scope.info = "";
       $scope.idArray = [];
       $scope.showAllQuestions();
     };

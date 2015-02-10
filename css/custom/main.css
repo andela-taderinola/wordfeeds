@@ -10,6 +10,16 @@ body {
   font-size: 1.3em;
 }
 
+.homediv {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: 0;
+}
+
+.homebtn {
+  font-size: 0.7em;
+  padding: 0.4em;
+}
+
 div h3 {
   display: inline-block;
 }
@@ -144,8 +154,9 @@ a {
 footer {
   position: relative;
   width: 100%;
+  margin: 3em auto 0;
+  max-height: 1em;
   color: #003171;
-  margin: 5% auto 0;
   padding: 0.5em;
   bottom: 0;
   font-size: 1em;
@@ -185,9 +196,9 @@ footer * {
 .mainContainer {
   opacity: 0.9;
   padding: 3em;
-  margin: auto; 
-  width: 70%;
-  min-height: 80%;
+  margin: 3em auto; 
+  width: 65%;
+  min-height: 70%;
   text-align: justify;
   background: none;
   background: url('../../img/subtle_white_feathers.png');
@@ -348,10 +359,10 @@ ul {
 
 .userForm {
   position: relative;
-  margin: 3% auto;
+  margin: -2em auto 0.5%;
   max-width: 30em;
-  border: 2px solid #1F4788;
-  background: #48929B;
+  height: 29em;
+  background: none;
   border-radius: 5px;
   text-align: center;
 }
@@ -380,7 +391,7 @@ form h1, form a, .userForm .btn {
 }
 
 .userForm label, .userForm p a {
-  margin: 1em;
+  margin: 1em 0;
 }
 
 .userForm div {

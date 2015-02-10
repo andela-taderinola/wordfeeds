@@ -27,7 +27,7 @@ angular.module('Authentication')
               $scope.info = "Authenticated";
               $localStorage.token = response.data.token;
               $localStorage.username = $scope.username;
-              window.location = "#/home";    
+              window.location = "#/feeds";    
           }
         }, function() {
             $rootScope.error = 'Failed to signin';

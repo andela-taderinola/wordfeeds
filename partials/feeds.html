@@ -1,15 +1,19 @@
+<center>
+  <label id="postInfo" ng-bind="info"></label>
+</center>
 <div ng-init="showAllQuestions()">
-  <div id="welcome">
-    <h3>Welcome,&nbsp</h3><h3 ng-show="currentUser" ng-bind="currentUser"></h3>
-    <span ng-hide="currentUser"><h3>Guest</h3></span><a class="pull-right" ng-show="currentUser" ng-click="logout()" href="#/logout">Sign out</a>
-  </div>
+  <span ng-show="currentUser" class="pull-right">Signed in as {{currentUser}} | <a ng-click="logout()" href="#/logout">Sign out</a></span>
+  <span class="pull-right" ng-hide="currentUser">Guest | <a href="#/login"> login</a></span>
   <h3>
-    Drop your questions <a href="#/post">here</a>
-  </h3><span><a class="pull-right" ng-hide="currentUser" href="#/login"> login</a></span>
+    Drop your questions <a href="#/post" title="Post question">here</a>
+  </h3>
   <div id="filterBar">
     <input class="form-control" id="feedFilter" placeholder="Search with keywords" ng-model="refine">
   </div>
   <div id="feedContainer">
+    <center>
+      <img src="img/ajax_loader_small.gif" ng-hide="questions">
+    </center>
     <div id="questionsContainer" ng-repeat="question in questions | filter:refine">
       <div class="question">
         <h4 ng-bind="question.content"></h4>
@@ -27,7 +31,7 @@
         </span>
         <div class="reviewDiv">
           <span class="btn btn-primary review">
-            <a ng-click="storeId(question._id)" class="showAnswers" href="#/answers">
+            <a ng-click="storeId(question._id)" class="showAnswers" href="#/answers" title="View contributions">
               <span>contributions <span ng-show="question.answers > 0" ng-bind="question.answers" class="badge"></span></span>
             </a>
           </span>

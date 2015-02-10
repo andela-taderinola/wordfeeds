@@ -9,7 +9,7 @@ angular.module('Questions')
 
   function ($http, $rootScope, $localStorage) {
           
-      var baseUrl = "https://bibleforum.herokuapp.com";
+      var baseUrl = "http://bibleforum.herokuapp.com";
       // function changeUser(user) {
       //     angular.extend(currentUser, user);
       // }
@@ -50,7 +50,7 @@ angular.module('Questions')
             $http.put(baseUrl + '/api/users/' + username + '/questions/' + question_id, data, config).success(success)
           },
           getAllQuestions: function(success) {
-              $http.get(baseUrl + '/api/questions').success(success)
+            $http.get(baseUrl + '/api/questions').success(success)
           },
           getQuestionById: function(question_id, success) {
             $http.get(baseUrl + '/api/questions/' + question_id).success(success)

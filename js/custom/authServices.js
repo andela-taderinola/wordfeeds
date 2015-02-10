@@ -9,7 +9,7 @@ angular.module('Authentication')
 
   function ($http, $rootScope, $localStorage) {
           
-    var baseUrl = "https://bibleforum.herokuapp.com";
+    var baseUrl = "http://bibleforum.herokuapp.com";
 
     function changeUser(user) {
       angular.extend(currentUser, user);

@@ -1,8 +1,9 @@
+<center>
+  <label id="postInfo" ng-bind="info"></label>
+</center>
 <div ng-init="showAnswers()">
-  <div id="welcome">
-    <h3>Welcome,&nbsp </h3><h3 ng-show="currentUser" ng-bind="currentUser"></h3>
-    <span ng-hide="currentUser"><h3>Guest</h3></span><a class="pull-right" ng-show="currentUser" ng-click="logout()" href="#/logout">Sign out</a>
-  </div>
+  <span ng-show="currentUser" class="pull-right">Signed in as {{currentUser}} | <a ng-click="logout()" href="#/logout">Sign out</a></span>
+  <span class="pull-right" ng-hide="currentUser">Guest | <a href="#/login"> login</a></span>
   <h3>
     Contributions
   </h3>
@@ -15,13 +16,16 @@
           <span> on </span><span ng-bind="question.posted | date:'medium'"></span>
         </em>
         <div class="reviewDiv">
-          <span class="review">
-            <a ng-click="storeId(idArray[$index])" class="showAnswers" href="#/answers">
-              <span>contributions</span>
+          <span class="btn btn-primary review">
+            <a class="showAnswers" href="">
+              <span>contributions <span ng-show="question.answers > 0" ng-bind="question.answers" class="badge"></span></span>
             </a>
-          </span>&nbsp<span ng-show="question.answers > 0" ng-bind="question.answers"></span>
+          </span>
         </div>
       </div>
+      <center>
+        <img src="img/ajax_loader_small.gif" ng-hide="answers">
+      </center>
       <div id="answer{{$index}}" ng-repeat="answer in answers | orderBy:'answer.posted'" class="container-fluid answer">
         <hr>
         <h5 ng-bind="answer.content"></h5>
@@ -54,5 +58,8 @@
         </form>
       </div>
     </div>
+  </div>
+  <div style="text-align: right; margin-top: 1em;" ng-show="!currentUser">
+      <a style="font-size: 1em;" class="btn btn-primary btn-lg homebtn" role="button" href="#/login" title="Sign in">Sign in</a> to contribute answers.
   </div>
 </div>

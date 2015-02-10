@@ -37,8 +37,8 @@
           controller: 'loginController'
         }).
         when('/logout', {
-          templateUrl: 'partials/login.html',
-          controller: 'loginController'
+          templateUrl: 'partials/feeds.html',
+          controller: 'feedsController'
         }).
         when('/feeds', {
           templateUrl: 'partials/feeds.html',
